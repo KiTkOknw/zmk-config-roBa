@@ -120,7 +120,7 @@
 
         lang1 {    
             bindings = <&kp LANGUAGE_1>;
-            key-positions = <29 30>;
+            key-positions = <30 31>;
         };
     
         lang2 {
