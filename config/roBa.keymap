@@ -66,33 +66,71 @@
     // };
 };
 
+&caps_word { 
+    continue-list = <BACKSPACE DELETE MINUS LSHIFT INT1>; 
+};
+
 / {
     combos {
         compatible = "zmk,combos";
 
+//        tab {
+//            bindings = <&kp TAB>;
+//            key-positions = <11 12>;
+//        };
+
+//        shift_tab {
+//            bindings = <&kp LS(TAB)>;
+//            key-positions = <12 13>;
+//        };
+
+//        muhennkann {
+//            bindings = <&to_layer_0 INT_MUHENKAN>;
+//            key-positions = <11 10>;
+//        };
+
+//        double_quotation {
+//            bindings = <&kp DOUBLE_QUOTES>;
+//            key-positions = <20 21>;
+//        };
+
+//        eq {
+//            bindings = <&kp EQUAL>;
+//            key-positions = <24 25>;
+//        };
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <27 28>;
+        };
+
+        backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <7 8>;
+        };
+
+        escape {
+            bindings = <&kp ESCAPE>;
+            key-positions = <21 22>;
+        };
+
         tab {
             bindings = <&kp TAB>;
-            key-positions = <11 12>;
+            key-positions = <2 1>;
         };
 
-        shift_tab {
-            bindings = <&kp LS(TAB)>;
-            key-positions = <12 13>;
+        lang1 {
+            bindings = <&kp LANGUAGE_1>;
+            key-positions = <26 27>;
         };
 
-        muhennkann {
-            bindings = <&to_layer_0 INT_MUHENKAN>;
-            key-positions = <11 10>;
+        lang2 {
+            bindings = <&kp LANGUAGE_2>;
+            key-positions = <22 23>;
         };
 
-        double_quotation {
-            bindings = <&kp DOUBLE_QUOTES>;
-            key-positions = <20 21>;
-        };
-
-        eq {
-            bindings = <&kp EQUAL>;
-            key-positions = <24 25>;
+        capsword {
+            bindings = <&caps_word>;
+            key-positions = <20 29>;
         };
     };
 
@@ -114,6 +152,54 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+        //コロンセミコロン
+        jis_semi: jis_semi {
+            compatible = "zmk,behavior-mod-morph";
+            label = "jis_SEMI";
+            #binding-cells = <0>;
+            bindings = <&kp SEMI>, <&kp SQT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            // keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        mt_semi: mod_tap_jis_semi {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TAP_JIS_SEMI";
+            flavor = "balanced";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&jis_semi>;
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            //quick-tap-ms = <175>;
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+            hold-trigger-key-positions = <KEYS_L KEYS_T>;
+            hold-trigger-on-release;
+        };
+        hm_l: homerow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>,  <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            //quick-tap-ms = <175>;                // repeat on tap-into-hold
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+            hold-trigger-on-release;
+        };
+
+        hm_r: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            //quick-tap-ms = <175>;
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_L KEYS_T>;
+            hold-trigger-on-release;
+        };
     };
 
     keymap {
@@ -121,10 +207,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R                        &kp T                                                          &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F                        &kp G        &kp LS(LG(S))                      &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp SQT
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                        &kp B        &kp COLON                          &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 INT_HENKAN  &lt 2 SPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
+&kp Q             &kp W             &kp E          &kp R          &kp T                                                          &kp Y        &kp U          &lt 5 I         &kp O              &kp P
+&hm_l LGUI A      &hm_l LEFT_ALT S  &hm_l LSHFT D  &hm_l LCTRL F  &kp G        &kp LS(LG(S))                      &kp MINUS      &kp H        &hm_r RCTRL J  &hm_r RSHIFT K  &hm_r RIGHT_ALT L  &mt_semi RMETA 0
+&kp Z             &kp X             &kp C          &kp V          &kp B        &kp COLON                          &kp SEMICOLON  &kp N        &kp M          &kp COMMA       &kp DOT            &kp SLASH
+&none             &none             &none          &mo 5          &mo 2        &kp SPACE                          &kp BACKSPACE  &mo 1                                                          &none
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -132,19 +218,19 @@
 
         FUNCTION {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                       &kp F1  &kp F2  &kp F3  &kp F4  &kp F5
-&trans  &trans  &trans  &trans  &trans  &trans      &kp F13  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans  &trans  &trans  &trans  &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans                          &kp F12
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5                           &kp NUMBER_6    &kp NUMBER_7   &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
+&kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &trans          &trans   &kp LEFT_ARROW  &kp DOWN       &kp UP_ARROW  &kp RIGHT     &kp F11
+&kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &trans          &trans   &kp HOME        &kp PAGE_DOWN  &kp PAGE_UP   &kp END       &kp F12
+&trans        &trans        &trans        &trans        &trans        &trans          &trans   &trans                                                     &trans
             >;
         };
 
         NUM {
             bindings = <
-&kp MINUS                   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                                   &kp CARET         &kp AMPERSAND      &kp TILDE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp SLASH                   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))      &kp UNDERSCORE  &kp EXCLAMATION   &kp AT_SIGN        &kp HASH        &kp DOLLAR            &kp PERCENT
-&mt LEFT_SHIFT KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                    &trans          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp BACKSLASH
-&trans                      &trans           &trans           &trans           &trans        &trans                       &trans          &trans                                                                     &kp PIPE
+&kp EXCLAMATION  &kp JP_AT     &kp HASH         &kp DOLLAR     &kp PERCENT                                         &kp JP_CARET     &kp JP_AMPERSAND  &kp JP_ASTERISK &kp JP_LPAREN    &kp JP_RPAREN
+&trans           &trans        &kp JP_YEN       &kp JP_QUOTE   &trans       &trans                       &trans    &kp JP_BACKQUOTE &kp MINUS         &kp JP_EQUAL    &kp JP_LBRACKET  &kp JP_RBRACKET
+&trans           &trans        &kp JP_PIPE      &kp JP_DQUOTE  &trans       &trans                       &trans    &kp JP_TILDE     &kp JP_UNDERSCORE &kp JP_PLUS     &kp JP_LBRACE    &kp JP_RBRACE
+&trans           &trans        &trans           &trans         &trans       &trans                       &trans    &trans                                                              &kp PIPE
             >;
         };
 
@@ -161,10 +247,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
+&trans  &trans  &trans  &trans  &trans                         &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans     &trans      &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
+&trans  &trans  &trans  &trans  &trans     &trans      &trans  &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &mkp LCLK  &trans      &trans  &trans                                &trans
             >;
         };
 
