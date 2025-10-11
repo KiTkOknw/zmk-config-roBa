@@ -60,6 +60,13 @@
     };
 };
 
+&zip_temp_layer {
+    excluded-positions = <
+        18 // J
+        19 // K
+    >;
+};
+
 / {
     /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
         compatible = "zmk,input-processor-temp-layer";
@@ -70,10 +77,10 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_temp_layer 4 400>;
+        input-processors = <&zip_temp_layer 4 10000>;
     };
 
     mkp_input_listener {
-        input-processors = <&zip_temp_layer 4 400>;
+        input-processors = <&zip_temp_layer 4 250>;
     };
 };
