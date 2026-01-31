@@ -66,8 +66,8 @@
         #input-processor-cells = <2>;
         require-prior-idle-ms = <200>;
         excluded-positions = <
-            12 // D
-            13 // F
+            22 // Z
+            23 // X
         >;
     };
 
