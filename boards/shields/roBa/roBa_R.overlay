@@ -1,4 +1,4 @@
-#include "roBa.dtsi"
+    #include "roBa.dtsi"
 
 &default_transform {
     col-offset = <6>;
@@ -66,8 +66,8 @@
         #input-processor-cells = <2>;
         require-prior-idle-ms = <200>;
         excluded-positions = <
-            20 // l
-            21 // ;
+            30 // m
+            31 // ,
         >;
     };
 
