@@ -126,12 +126,12 @@
 
         lang1 {    
             bindings = <&kp LANGUAGE_1>;
-            key-positions = <2 3>;
+            key-positions = <24 25>;
         };
     
         lang2 {
             bindings = <&kp LANGUAGE_2>;
-            key-positions = <6 7>;
+            key-positions = <30 31>;
         };
 
         capsword {
@@ -141,13 +141,13 @@
 
         lclk {
             bindings = <&mkp LCLK>;
-            key-positions = <24 25>;
+            key-positions = <2 3>;
         };
 
 
         rclk {
             bindings = <&mkp RCLK>;
-            key-positions = <30 31>;
+            key-positions = <6 7>;
         };
     };
 
