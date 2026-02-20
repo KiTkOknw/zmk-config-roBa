@@ -1,4 +1,4 @@
-    #include "roBa.dtsi"
+#include "roBa.dtsi"
 
 &default_transform {
     col-offset = <6>;
@@ -60,24 +60,24 @@
     };
 };
 
-/// {
-//    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
-//        compatible = "zmk,input-processor-temp-layer";
-//        #input-processor-cells = <2>;
-//        require-prior-idle-ms = <200>;
-//        excluded-positions = <
-//            30 // M
-//            31 // ,
-//        >;
-//    };
+/ {
+    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <200>;
+        excluded-positions = <
+            30 // M
+            31 // ,
+        >;
+    };
 
-//    trackball_listener {
-//        compatible = "zmk,input-listener";
-//        device = <&trackball>;
-//        input-processors = <&zip_temp_layer 4 10000>;
-//    };
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+        input-processors = <&zip_temp_layer 4 10000>;
+    };
 
-//    mkp_input_listener {
-//        input-processors = <&zip_temp_layer 4 200>;
-//    };
-//};
+    mkp_input_listener {
+        input-processors = <&zip_temp_layer 4 200>;
+    };
+};
