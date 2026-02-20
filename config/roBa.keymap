@@ -48,6 +48,12 @@
     quick-tap-ms = <0>;
 };
 
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+};
+
+
 &trackball {
     //automouse-layer = <4>;
     scroll-layers = <5>;
@@ -243,6 +249,13 @@
             //hold-trigger-key-positions = <KEYS_R KEYS_T>;
             //hold-trigger-on-release;
         };
+        mo_mkp: mo_mkp {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;   // 長押しと判定する時間(ms)
+            bindings = <&mo>, <&mkp>; // ホールド時：&mo, タップ時：&mkp
+        };
     };
 
     keymap {
@@ -253,7 +266,7 @@
 &kp Q             &kp W             &kp E          &kp R          &kp T                                                          &kp Y        &kp U          &lt 5 I         &kp O              &kp P
 &hm_l LGUI A      &hm_l LEFT_ALT S  &hm_l LSHFT D  &hm_l LCTRL F  &kp G        &none                              &none          &kp H        &hm_r RCTRL J  &hm_r RSHIFT K  &hm_r RIGHT_ALT L  &mt_semi RMETA 0
 &kp Z             &kp X             &kp C          &kp V          &kp B        &none                              &none          &kp N        &kp M          &kp COMMA       &kp DOT            &kp SLASH
-&none             &none             &none          &mo 5          &mo 2        &kp SPACE                          &kp ENTER      &mo 1                                                          &none
+&none             &none             &none          &mo 5          &mo_mkp 2 LCLK       &kp SPACE                          &kp ENTER      &mo_mkp 1 RCLK                                                         &none
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
