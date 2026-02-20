@@ -141,13 +141,13 @@
 
         lclk {
             bindings = <&mkp LCLK>;
-            key-positions = <30 31>;
+            key-positions = <24 25>;
         };
 
 
         rclk {
             bindings = <&mkp RCLK>;
-            key-positions = <24 25>;
+            key-positions = <30 31>;
         };
     };
 
