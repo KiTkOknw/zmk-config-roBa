@@ -125,12 +125,12 @@
         };
 
         lang1 {    
-            bindings = <&kp LANGUAGE_1>;
+            bindings = <&kp LANGUAGE_2>;
             key-positions = <24 25>;
         };
     
         lang2 {
-            bindings = <&kp LANGUAGE_2>;
+            bindings = <&kp LANGUAGE_1>;
             key-positions = <30 31>;
         };
 
