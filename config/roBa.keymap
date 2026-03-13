@@ -138,16 +138,6 @@
             bindings = <&caps_word>;
             key-positions = <22 33>;
         };
-
-//        lclk {
-//            bindings = <&mkp LCLK>;
-//            key-positions = <2 3>;
-//        };
-
-//        rclk {
-//            bindings = <&mkp RCLK>;
-//            key-positions = <6 7>;
-//        };
     };
 
     macros {
