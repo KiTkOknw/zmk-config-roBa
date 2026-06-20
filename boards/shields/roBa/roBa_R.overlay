@@ -1,5 +1,4 @@
 #include "roBa.dtsi"
-#include <dt-bindings/zmk/input_transform.h>
 
 &default_transform {
     col-offset = <6>;
@@ -83,14 +82,4 @@
     mkp_input_listener {
         input-processors = <&zip_temp_layer 4 200>;
     };
-};
-
-// DPI（感度）を上げるキー
-&kp UP {
-    input-processor = <&zip_temp_layer_press 0 0 (INPUT_TRANSFORM_XY_SCALE(200, 200))>;
-};
-
-// 特定の感度で固定する（例: 200%）
-&kp DOWN {
-    input-processor = <&zip_temp_layer_press 0 0 (INPUT_TRANSFORM_XY_SCALE(200, 200))>;
 };
