@@ -42,7 +42,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <input/processors.dtsi>
 
 &mt {
     flavor = "balanced";
@@ -249,12 +248,6 @@
             //hold-trigger-key-positions = <KEYS_R KEYS_T>;
             //hold-trigger-on-release;
         };
-        dpi_scale_layer: dpi_scale_layer {
-            compatible = "zmk,behavior-input-processor-state";
-            #binding-cells = <0>;
-            layers = <6>;
-            input-processors = <&zip_xy_scaler 1 10>; // 速度を 1/5 に減速（精密操作用）
-        };
     };
 
     keymap {
@@ -263,7 +256,7 @@
         default_layer {
             bindings = <
 &kp Q             &kp W             &kp E          &kp R          &kp T                                                          &kp Y        &kp U          &lt 5 I         &kp O              &kp P
-&hm_l LGUI A      &hm_l LEFT_ALT S  &hm_l LSHFT D  &hm_l LCTRL F  &kp G        &dpi_scale_layer                          &none          &kp H        &hm_r RCTRL J  &hm_r RSHIFT K  &hm_r RIGHT_ALT L  &mt_semi RMETA 0
+&hm_l LGUI A      &hm_l LEFT_ALT S  &hm_l LSHFT D  &hm_l LCTRL F  &kp G        &none                          &none          &kp H        &hm_r RCTRL J  &hm_r RSHIFT K  &hm_r RIGHT_ALT L  &mt_semi RMETA 0
 &kp Z             &kp X             &kp C          &kp V          &kp B        &none                          &none          &kp N        &kp M          &kp COMMA       &kp DOT            &kp SLASH
 &none             &none             &none          &mo 5          &mo 2        &kp SPACE                      &kp ENTER      &mo 1                                                          &none
             >;
