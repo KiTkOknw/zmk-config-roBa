@@ -74,11 +74,6 @@
     };
 
     trackball_listener: trackball_listener {
-    status = "okay";
-    snipe {
-        layers = <6>;
-        input-processors = <&zip_xy_scaler 1 3>;
-    };
     change_layer {
         compatible = "zmk,input-listener";
         device = <&trackball>;
