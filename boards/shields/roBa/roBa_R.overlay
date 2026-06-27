@@ -66,6 +66,11 @@
     };
 
     trackball_listener: trackball_listener {
+        snipe {
+        layers = <6>;
+        input-processors = <&zip_xy_scaler 1 10>;
+        process-next;
+        };
         compatible = "zmk,input-listener";
         device = <&trackball>;
         input-processors = <&zip_temp_layer 4 10000>;
