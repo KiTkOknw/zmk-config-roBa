@@ -73,7 +73,7 @@
         >;
     };
 
-    trackball_listener {
+    trackball_listener: trackball_listener {
     snipe {
         layers = <6>;
         input-processors = <&zip_xy_scaler 1 3>;
