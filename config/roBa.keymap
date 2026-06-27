@@ -53,6 +53,9 @@
     tapping-term-ms = <200>;
 };
 
+&zip_xy_scaler {
+    status = "okay";
+};
 
 &trackball {
     //automouse-layer = <4>;
