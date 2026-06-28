@@ -70,10 +70,6 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
         input-processors = <&zip_temp_layer 4 10000>;
-        low_dpi {
-            layers = <6>;
-            input-processors = <&zip_xy_scaler 1 10>; 
-        };
     };
 
     mkp_input_listener {
