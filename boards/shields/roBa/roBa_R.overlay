@@ -73,15 +73,30 @@
             31
         >;
     };
-
+    // ── 1. 加速度パラメータの調整定義 ──
+    pointer_accel: pointer_accel {
+        compatible = "zmk,input-processor-pointer-acceleration";
+        #input-processor-cells = <0>;
+        
+        // roBa用に微調整しやすいおすすめの初期値
+        min-factor = <800>;          // 遅い時の速度（80%に減速させて精密操作）
+        max-factor = <3000>;         // 最大加速時の速度（3倍）
+        speed-threshold = <500>;     // 加速が始まり始める閾値
+        speed-max = <1500>;          // 最大加速に達する速度
+        acceleration-exponent = <2>; // 2次曲線でスムーズに加速
+    };
+    // ── 2. roBaのインプットリスナーへ適用 ──
+    // ※既存の &trackball_listener や &ib_handler 内の input-processors を書き
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_temp_layer 4 10000>;
-    snipe_mode {
-        layers = <6>;
-        input-processors = <&zip_xy_scaler 1 10>;
-    };
+        input-processors = <&zip_temp_layer 4 10000>,
+            // 既存のプロセッサ（例: <&zip_xy_scaler 1 1> など）があればその後に挿入
+            <&pointer_accel>;
+        snipe_mode {
+            layers = <6>;
+            input-processors = <&zip_xy_scaler 1 10>;
+        };
     };
 
     mkp_input_listener {
