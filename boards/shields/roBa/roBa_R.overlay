@@ -62,7 +62,7 @@
     };
 };
 
-$pointer_accel {
+&pointer_accel {
         compatible = "zmk,input-processor-pointer-acceleration";
         #input-processor-cells = <0>;
         
