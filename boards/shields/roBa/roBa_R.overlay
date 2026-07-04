@@ -63,14 +63,13 @@
 };
 
 &pointer_accel {
-        compatible = "zmk,input-processor-pointer-acceleration";
-        #input-processor-cells = <0>;
-        label = "pointer_accel";
-        min-factor = <800>;
-        max-factor = <3000>;
-        speed-threshold = <500>;
-        speed-max = <1500>;
-        acceleration-exponent = <2>;
+    input-type = <INPUT_EV_REL>;
+    track-remainders;
+    min-factor = <800>;
+    max-factor = <3000>;
+    speed-threshold = <500>;
+    speed-max = <1500>;
+    acceleration-exponent = <2>;
 };
 
 / {
