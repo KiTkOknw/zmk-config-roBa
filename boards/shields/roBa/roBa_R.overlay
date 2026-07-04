@@ -1,5 +1,6 @@
 #include "roBa.dtsi"
 #include <input/processors.dtsi>
+#include <dt-bindings/zmk/pointing-acceleration.h>
 
 &default_transform {
     col-offset = <6>;
