@@ -91,7 +91,8 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_temp_layer 4 10000>;
+        input-processors = <&zip_temp_layer 4 10000>,
+            <&pointer_accel>;
         snipe_mode {
             layers = <6>;
             input-processors = <&zip_xy_scaler 1 10>;
