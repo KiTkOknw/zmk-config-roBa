@@ -65,10 +65,15 @@
 &pointer_accel {
     input-type = <INPUT_EV_REL>;
     track-remainders;
+    // 精密操作用：低速時は「0.5倍」まで落としてドットエイムを安定
     min-factor = <500>;
+    // 高速移動用：最大「3.5倍」まで加速
     max-factor = <3500>;
+    // 加速が始まる速度。CPI1000の軽快さを受け止めるため少し高めに設定
     speed-threshold = <1200>;
+    // 最大加速に達する速度。ボールをシュッと弾いたときの最高速度
     speed-max = <6500>;
+    // 2次関数カーブで滑らかに加速
     acceleration-exponent = <2>;
 };
 
