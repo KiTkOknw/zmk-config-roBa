@@ -133,6 +133,16 @@
             key-positions = <30 31>;
         };
 
+        hankan {    
+            bindings = <&kp INT_HENKAN>;
+            key-positions = <2 3>;
+        };
+    
+        muhenkan {
+            bindings = <&kp INT_MUHENKAN>;
+            key-positions = <6 7>;
+        };
+
         capsword {
             bindings = <&caps_word>;
             key-positions = <22 33>;
