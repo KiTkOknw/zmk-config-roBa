@@ -124,22 +124,22 @@
         };
 
         lang1 {    
-            bindings = <&kp LANGUAGE_1>;
+            bindings = <&kp LANGUAGE_2>;
             key-positions = <24 25>;
         };
     
         lang2 {
-            bindings = <&kp LANGUAGE_2>;
+            bindings = <&kp LANGUAGE_1>;
             key-positions = <30 31>;
         };
 
         hankan {    
-            bindings = <&kp INT_HENKAN>;
+            bindings = <&kp INT_MUHENKAN>;
             key-positions = <2 3>;
         };
     
         muhenkan {
-            bindings = <&kp INT_MUHENKAN>;
+            bindings = <&kp INT_HENKAN>;
             key-positions = <6 7>;
         };
 
@@ -286,7 +286,7 @@
         NUM {
             bindings = <
 &kp EXCLAMATION  &kp JP_AT     &kp HASH         &kp DOLLAR     &kp PERCENT                                         &kp JP_CARET     &kp JP_AMPERSAND  &kp JP_ASTERISK &kp JP_LPAREN    &kp JP_RPAREN
-&trans           &trans        &kp JP_YEN       &kp JP_QUOTE   &trans       &trans                       &trans    &kp JP_BACKQUOTE &kp MINUS         &kp JP_EQUAL    &kp JP_LBRACKET  &kp JP_RBRACKET
+&trans           &kp INT_YEN   &kp JP_YEN       &kp JP_QUOTE   &trans       &trans                       &trans    &kp JP_BACKQUOTE &kp MINUS         &kp JP_EQUAL    &kp JP_LBRACKET  &kp JP_RBRACKET
 &trans           &trans        &kp JP_PIPE      &kp JP_DQUOTE  &trans       &trans                       &trans    &kp JP_TILDE     &kp JP_UNDERSCORE &kp JP_PLUS     &kp JP_LBRACE    &kp JP_RBRACE
 &trans           &trans        &trans           &trans         &trans       &trans                       &trans    &trans                                                              &kp PIPE
             >;
