@@ -124,12 +124,12 @@
         };
 
         lang1 {    
-            bindings = <&kp INT_MUHENKAN>;
+            bindings = <&kp LANGUAGE_1>;
             key-positions = <24 25>;
         };
     
         lang2 {
-            bindings = <&kp INT_HENKAN>;
+            bindings = <&kp LANGUAGE_2>;
             key-positions = <30 31>;
         };
 
