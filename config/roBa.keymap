@@ -286,8 +286,8 @@
         NUM {
             bindings = <
 &kp EXCLAMATION  &kp JP_AT     &kp HASH         &kp DOLLAR     &kp PERCENT                                         &kp JP_CARET     &kp JP_AMPERSAND  &kp JP_ASTERISK &kp JP_LPAREN    &kp JP_RPAREN
-&trans           &trans        &kp JP_YEN       &kp JP_QUOTE   &trans       &trans                       &trans    &kp JP_BACKQUOTE &kp MINUS         &kp JP_EQUAL    &kp JP_LBRACKET  &kp JP_RBRACKET
-&trans           &trans        &kp JP_PIPE      &kp JP_DQUOTE  &trans       &trans                       &trans    &kp JP_TILDE     &kp JP_UNDERSCORE &kp JP_PLUS     &kp JP_LBRACE    &kp JP_RBRACE
+&trans           &kp INT1      &kp JP_YEN       &kp JP_QUOTE   &trans       &trans                       &trans    &kp JP_BACKQUOTE &kp MINUS         &kp JP_EQUAL    &kp JP_LBRACKET  &kp JP_RBRACKET
+&trans           &kp BSLS      &kp JP_PIPE      &kp JP_DQUOTE  &trans       &trans                       &trans    &kp JP_TILDE     &kp JP_UNDERSCORE &kp JP_PLUS     &kp JP_LBRACE    &kp JP_RBRACE
 &trans           &trans        &trans           &trans         &trans       &trans                       &trans    &trans                                                              &kp PIPE
             >;
         };
