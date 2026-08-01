@@ -134,12 +134,12 @@
         };
 
         hankan {    
-            bindings = <&kp INT_MUHENKAN>;
+            bindings = <&kp GRAVE>;
             key-positions = <2 3>;
         };
     
         muhenkan {
-            bindings = <&kp INT_HENKAN>;
+            bindings = <&kp LANG_ZENKAKUHANKAKU>;
             key-positions = <6 7>;
         };
 
