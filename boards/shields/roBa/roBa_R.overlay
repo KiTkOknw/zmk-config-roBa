@@ -85,8 +85,8 @@
         excluded-positions = <
             12
             13
-            24
-            25
+            30
+            31
         >;
     };
 
