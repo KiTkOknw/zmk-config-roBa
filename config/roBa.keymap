@@ -123,10 +123,11 @@
             key-positions = <1 2>;
         };
 
-//        lang1 {    
-//            bindings = <&kp LANGUAGE_2>;
-//            key-positions = <24 25>;
-//        };
+        lang1 {
+            timeout-ms = <25>;
+            bindings = <&kp LANGUAGE_2>;
+            key-positions = <24 25>;
+        };
     
         lang2 {
             bindings = <&kp LANGUAGE_1>;
@@ -136,11 +137,6 @@
         hankan {    
             bindings = <&kp GRAVE>;
             key-positions = <2 3>;
-        };
-    
-        muhenkan {
-            bindings = <&kp LANGUAGE_2>;
-            key-positions = <6 7>;
         };
 
         capsword {
