@@ -83,10 +83,10 @@
         #input-processor-cells = <2>;
         require-prior-idle-ms = <200>;
         excluded-positions = <
-            37
+            30
+            31
             38
-            24
-            25
+            39
         >;
     };
 
