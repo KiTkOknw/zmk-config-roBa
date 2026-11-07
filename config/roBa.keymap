@@ -254,6 +254,16 @@
             //hold-trigger-key-positions = <KEYS_R KEYS_T>;
             //hold-trigger-on-release;
         };
+
+    behaviors {
+        lt_rclk: lt_rclk {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred"; // 好みに応じて balanced などに変更可能
+            tapping-term-ms = <200>;   // 長押し判定の時間（ミリ秒）
+            bindings = <&mo>, <&mkp>;  // 1つ目が長押し時（MO）、2つ目が短押し時（MKP）
+        };
+    };
     };
 
     keymap {
@@ -304,7 +314,7 @@
 &trans  &trans  &trans  &trans     &trans                     &trans  &trans  &trans    &trans   &trans
 &trans  &trans  &trans  &trans     &trans     &trans          &trans  &trans  &trans    &trans   &trans     &trans
 &trans  &trans  &trans  &trans     &trans     &trans          &trans  &trans  &trans    &trans   &trans     &trans
-&trans  &trans  &trans  &lt 5 &mkp RCLK  &mkp LCLK  &trans          &trans  &trans                                &trans
+&trans  &trans  &trans  &lt_rclk 5 RCLK  &mkp LCLK  &trans          &trans  &trans                                &trans
             >;
         };
 
