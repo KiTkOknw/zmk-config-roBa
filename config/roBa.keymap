@@ -304,7 +304,7 @@
 &trans  &trans  &trans  &trans     &trans                     &trans  &trans  &trans    &trans   &trans
 &trans  &trans  &trans  &trans     &trans     &trans          &trans  &trans  &trans    &trans   &trans     &trans
 &trans  &trans  &trans  &trans     &trans     &trans          &trans  &trans  &trans    &trans   &trans     &trans
-&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &trans          &trans  &trans                                &trans
+&trans  &trans  &trans  &lt 5 RCLK  &mkp LCLK  &trans          &trans  &trans                                &trans
             >;
         };
 
