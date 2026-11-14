@@ -254,7 +254,19 @@
             //hold-trigger-key-positions = <KEYS_R KEYS_T>;
             //hold-trigger-on-release;
         };
+        hm_l_m: homerow_mods_left_mo {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&mo>,  <&kp>;
 
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            //quick-tap-ms = <175>;                // repeat on tap-into-hold
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+            hold-trigger-on-release;
+        };
         lt_rclk: lt_rclk {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -270,9 +282,9 @@
         default_layer {
             bindings = <
 &kp Q             &kp W             &kp E          &kp R          &kp T                                                      &kp Y        &kp U          &lt 5 I            &kp O                &kp P
-&kp A             &kp S             &kp D          &kp F          &kp G        &none                          &none          &kp H        &kp J          &kp K              &kp L                &jis_semi          //&jis_semi RMETA 0
+&kp A             &hm_l_m 5 S       &kp D          &kp F          &kp G        &none                          &none          &kp H        &kp J          &kp K              &kp L                &jis_semi          //&jis_semi RMETA 0
 &hm_l LGUI Z      &hm_l LEFT_ALT X  &hm_l LSHFT C  &hm_l LCTRL V  &kp B        &none                          &none          &kp N        &hm_r RCTRL M  &hm_r RSHIFT COMMA &hm_r RIGHT_ALT DOT  &hm_r RMETA SLASH  //&lt 5 SLASH
-&none             &none             &none          &mo 6          &mo 2        &kp SPACE                      &kp ENTER      &mo 1                                                               &none
+&none             &none             &none          &mo 6          &mo 1        &kp SPACE                      &kp ENTER      &mo 2                                                               &none
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
