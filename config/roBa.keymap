@@ -255,7 +255,6 @@
             //hold-trigger-on-release;
         };
 
-    behaviors {
         lt_rclk: lt_rclk {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -263,7 +262,6 @@
             tapping-term-ms = <200>;   // 長押し判定の時間（ミリ秒）
             bindings = <&mo>, <&mkp>;  // 1つ目が長押し時（MO）、2つ目が短押し時（MKP）
         };
-    };
     };
 
     keymap {
