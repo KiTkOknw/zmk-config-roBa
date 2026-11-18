@@ -267,19 +267,7 @@
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
             hold-trigger-on-release;
         };
-        hm_r_m: homerow_mods_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&mo>, <&kp>;
 
-            flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM>;
-            //quick-tap-ms = <175>;
-            require-prior-idle-ms = <HM_PRIOR_IDLE>;
-
-            hold-trigger-key-positions = <KEYS_L KEYS_T>;
-            hold-trigger-on-release;
-        };
         lt_rclk: lt_rclk {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
