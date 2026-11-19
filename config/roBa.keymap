@@ -143,6 +143,19 @@
             bindings = <&caps_word>;
             key-positions = <22 33>;
         };
+
+        combo_lclk {
+            timeout-ms = <50>;
+            key-positions = <11 12>; // 同時押しするキー番号（例: J と K）
+            bindings = <&mkp LCLK>;   // 左クリック
+            layers = <0 8>;          // 有効にするレイヤー（任意）
+        };
+
+        combo_rclk {
+            timeout-ms = <50>;
+            key-positions = <19 20>; // 例: K と L
+            bindings = <&mkp RCLK>;   // 右クリック
+        };
     };
 
     macros {
@@ -254,27 +267,27 @@
             //hold-trigger-key-positions = <KEYS_R KEYS_T>;
             //hold-trigger-on-release;
         };
-        hm_l_m: homerow_mods_left_mo {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&mo>,  <&kp>;
+//        hm_l_m: homerow_mods_left_mo {
+//            compatible = "zmk,behavior-hold-tap";
+//            #binding-cells = <2>;
+//            bindings = <&mo>,  <&kp>;
+//
+//            flavor = "balanced";
+//            tapping-term-ms = <HM_TAPPING_TERM>;
+//            //quick-tap-ms = <175>;                // repeat on tap-into-hold
+//            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+//
+//            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+//            hold-trigger-on-release;
+//        };
 
-            flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM>;
-            //quick-tap-ms = <175>;                // repeat on tap-into-hold
-            require-prior-idle-ms = <HM_PRIOR_IDLE>;
-
-            hold-trigger-key-positions = <KEYS_R KEYS_T>;
-            hold-trigger-on-release;
-        };
-
-        lt_rclk: lt_rclk {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";       // 好みに応じて balanced などに変更可能
-            tapping-term-ms = <175>;   // 長押し判定の時間（ミリ秒）
-            bindings = <&mo>, <&mkp>;  // 1つ目が長押し時（MO）、2つ目が短押し時（MKP）
-        };
+//        lt_rclk: lt_rclk {
+//            compatible = "zmk,behavior-hold-tap";
+//            #binding-cells = <2>;
+//            flavor = "balanced";       // 好みに応じて balanced などに変更可能
+//            tapping-term-ms = <175>;   // 長押し判定の時間（ミリ秒）
+//            bindings = <&mo>, <&mkp>;  // 1つ目が長押し時（MO）、2つ目が短押し時（MKP）
+//        };
     };
 
     keymap {
@@ -285,7 +298,7 @@
 &kp Q             &kp W             &kp E          &kp R          &kp T                                                           &kp Y        &kp U          &lt 5 I            &kp O                &kp P
 &kp A             &kp S             &kp D          &kp F          &kp G             &none                          &none          &kp H        &kp J          &kp K              &kp L                &jis_semi          //&jis_semi RMETA 0
 &hm_l LGUI Z      &hm_l LEFT_ALT X  &hm_l LSHFT C  &hm_l LCTRL V  &kp B             &none                          &none          &kp N        &hm_r RCTRL M  &hm_r RSHIFT COMMA &hm_r RIGHT_ALT DOT  &hm_r RMETA SLASH  //&lt 5 SLASH
-&none             &none             &none          &mo 5          &lt_rclk 2 LCLK   &kp SPACE                      &kp ENTER      &lt_rclk 1 RCLK                                                     &none
+&none             &none             &none          &mo 5          &mo 2             &kp SPACE                      &kp ENTER      &mo 1                                                               &none
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -325,14 +338,14 @@
 &trans  &trans  &trans    &trans    &trans                    &trans  &trans  &trans    &trans   &trans
 &trans  &trans  &trans    &trans    &trans    &trans          &trans  &trans  &trans    &trans   &trans     &trans
 &trans  &trans  &trans    &trans    &trans    &trans          &trans  &trans  &trans    &trans   &trans     &trans
-&trans  &trans  &trans    &trans    &mkp LCLK &trans          &trans  &mkp RCLK                             &trans
+&trans  &trans  &trans    &trans    &trans    &trans          &trans  &trans                                &trans
             >;
         };
 
         SCROLL {
             bindings = <
 &trans  &trans  &trans     &trans     &trans                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans  &trans     &trans     &trans  &trans           &trans  &trans        &kp K_APP     &trans        &trans        &trans
+&trans  &trans  &trans     &trans     &trans  &trans           &trans  &trans        &trans        &trans        &trans        &trans
 &trans  &trans  &trans     &trans     &trans  &trans           &trans  &trans        &trans        &trans        &trans        &bt BT_CLR
 &trans  &trans  &trans     &trans     &trans  &trans           &trans  &trans                                                  &trans
             >;
