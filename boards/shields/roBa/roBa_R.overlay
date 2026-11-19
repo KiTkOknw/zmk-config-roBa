@@ -92,7 +92,7 @@
 //            38
 //        >;
 //    };
-
+//
 //    trackball_listener {
 //        compatible = "zmk,input-listener";
 //        device = <&trackball>;
@@ -107,7 +107,7 @@
 //            input-processors = <&zip_xy_scaler 1 10>;
 //        };
 //    };
-
+//
 //    mkp_input_listener {
 //        input-processors = <&zip_temp_layer 4 200>;
 //    };
