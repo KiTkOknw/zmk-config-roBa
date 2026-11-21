@@ -104,37 +104,44 @@
 //            key-positions = <24 25>;
 //        };
         delete {
+            timeout-ms = <25>;
             bindings = <&kp DELETE>;
             key-positions = <31 32>;
         };
 
         backspace {
+            timeout-ms = <25>;
             bindings = <&kp BACKSPACE>;
             key-positions = <7 8>;
         };
 
         escape {
+            timeout-ms = <25>;
             bindings = <&kp ESCAPE>;
             key-positions = <23 24>;
         };
 
         tab {
+            timeout-ms = <25>;
             bindings = <&kp TAB>;
             key-positions = <1 2>;
         };
 
         lang1 {
             timeout-ms = <25>;
+            timeout-ms = <25>;
             bindings = <&kp LANGUAGE_2>;
             key-positions = <24 25>;
         };
     
         lang2 {
+            timeout-ms = <25>;
             bindings = <&kp LANGUAGE_1>;
             key-positions = <30 31>;
         };
 
-        hankan {    
+        hankan {
+            timeout-ms = <25>;
             bindings = <&kp GRAVE>;
             key-positions = <2 3>;
         };
@@ -145,17 +152,17 @@
         };
 
         combo_lclk {
-            timeout-ms = <50>;
+            timeout-ms = <25>;
             key-positions = <11 12>; // 同時押しするキー番号（例: J と K）
             bindings = <&mkp LCLK>;   // 左クリック
             layers = <0 8>;          // 有効にするレイヤー（任意）
         };
 
-        combo_rclk {
-            timeout-ms = <50>;
-            key-positions = <19 20>; // 例: K と L
-            bindings = <&mkp RCLK>;   // 右クリック
-        };
+//        combo_rclk {
+//            timeout-ms = <25>;
+//            key-positions = <19 20>; // 例: K と L
+//            bindings = <&mkp RCLK>;   // 右クリック
+//        };
     };
 
 //    macros {
@@ -345,7 +352,7 @@
         SCROLL {
             bindings = <
 &trans  &trans  &trans     &trans     &trans                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans  &trans     &trans     &trans  &trans           &trans  &trans        &trans        &trans        &trans        &trans
+&trans  &trans  &trans     &trans     &trans  &trans           &trans  &trans        &kp K_APP     &&mkp RCLK    &trans        &trans
 &trans  &trans  &trans     &trans     &trans  &trans           &trans  &trans        &trans        &trans        &trans        &bt BT_CLR
 &trans  &trans  &trans     &trans     &trans  &trans           &trans  &trans                                                  &trans
             >;
